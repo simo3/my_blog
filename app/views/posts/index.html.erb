@@ -1,1 +1,17 @@
 <h1>Simo's Blog</h1>
+<% @posts.each do |post| %>
+<table class="table table-striped">
+  <tbody>
+  <tr>
+    <td>
+      <a href="posts/<%= post.id %>"><%= post.title %></a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</li>
+<% end %>
+<%= link_to 'Entry', new_post_path %>
+
+
+

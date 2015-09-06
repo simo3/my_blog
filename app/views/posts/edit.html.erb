@@ -1,5 +1,4 @@
-<h1>New Blog</h1>
-<%= form_for @post do |f| %>
+<%= form_for @post, url:{action: :update} do |f| %>
 <p>
   <%= f.label 'Title' %>
   <%= f.text_field :title %>
@@ -13,8 +12,5 @@
   <%= f.text_field :category %>
 </p>
 
-
-<%= f.submit 'Entry' %>
-
-
+<%= f.submit 'Update' %>
 <% end %>

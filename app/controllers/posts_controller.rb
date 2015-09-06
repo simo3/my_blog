@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post = Post.all
+    @posts = Post.all
   end
 
   def new
@@ -13,9 +13,27 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:id])
+    @post = Post.new(post_params)
     @post.save
-    redirect_to "posts/#{@post.id}"
+    redirect_to "/posts/#{@post.id}"
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update_attributes(post_params)
+    @post.save
+    redirect_to post_url(@post)
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @post.save
+    redirect_to posts_url(@post)
   end
 
 
